@@ -25,7 +25,7 @@ Magazine.Cover = (props) => {
             <Animate name="fadeIn" delay=".1ms" duration="3s">
                 <div className={styles.cover} >
                 <CoverImage title={props.title} slug={props.slug} url={props.image.coverImage.url || '/default-image.jpg'} />
-                   
+                {props.children}
                 </div>
             </Animate>
         </div>
@@ -42,18 +42,18 @@ Magazine.Footer = (props) => {
     const color = props.color || "#fff";
 
     return (
-        <div className={`${styles.magazine__footer} ${props.className}`} style={props.style}>
+        <div className={` ${props.className}`} >
             {props.children || (
                 <Block className="px-8 py-1">
                     <Animate name="fadeIn" delay="2s">
                         <Row className="row">
                             <Col className="col-12 col-sm-6">
-                                <p className="text-sm text-center md:text-left invisible md:visible" style={{ color }}>
+                                <p className="text-sm text-center md:text-left" style={{ color }}>
                                     © 2024 Всі права захищені )
                                 </p>
                             </Col>
                             <Col className="col-12 col-sm-6">
-                                <ul className="flex items-center justify-center sm:justify-end social-icons">
+                                <ul className="flex items-center  justify-end social-icons">
                                     <li className="md:ml-3">
                                         <a href="https://www.tiktok.com/@aliona_statkevych?_t=8oJhspJpbUG&_r=1" className="hover:opacity-60">
                                             <Twitter fill={color} width={14} height={14} />

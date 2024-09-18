@@ -42,7 +42,8 @@ const Post = (props) => {
         <Avatar name={post.author?.name || 'Anonymous'} picture={post.author?.picture || '/default-avatar.jpg'} />
       )}
                         <h3 className='text-2xl '>
-                            <Link href={post.slug}>
+                          <div className="bg-black text-white"> sdfds {post.tags?.tagname}</div>
+                            <Link href={`/posts/${post.slug}`}>
                                 {post.title}
                             </Link>
                         </h3>

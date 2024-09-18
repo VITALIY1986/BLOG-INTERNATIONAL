@@ -21,24 +21,32 @@ export default function Index({ preview, allPosts }) {
   const graphQLImageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
-
+  const filterPostsByTag = (allPosts, tagName) => {
+    return allPosts.filter((post) => 
+      post.tags && post.tags.tagname === tagName
+    );
+  };
+  
+  // Использование для выбора всех постов с тегом "myfirstimg"
+  const filteredPosts = filterPostsByTag(allPosts, "myfirstimg");
+ const firstVive = filteredPosts[0];
   return (
     <>
     <Head>
                 <title>
-                {heroPost?.title ? heroPost.title : 'Untitled Post'} | Next.js Blog Example with
+                {filteredPosts?.title ? firstVive.title : 'Untitled Post'} | Next.js Blog Example with
                 </title>
-                <meta property="og:image" content={heroPost?.title ? heroPost.title : 'Untitled Post'}/>
+                <meta property="og:image" content={firstVive?.title ? firstVive.title : 'Untitled Post'}/>
               </Head>
       <Magazine>
-        <Magazine.Cover image={heroPost }>
+        <Magazine.Cover image={firstVive }>
           <Heading className="absolute left-4 md:left-8 bottom-40 md:bottom-20">
             <Animate name="fadeIn" delay="1.2s" duration="2s">
               <Heading.Title>
                 <h1 className="text-white text-5xl font-extrabold leading-tight ">
                 <Typewriter
   options={{
-    strings: [heroPost.title, 'Hello', 'Buna'],  // Используем значение из heroPost.title
+    strings: [firstVive?.title, 'Hello', 'Buna'],  // Используем значение из heroPost.title
     autoStart: true,
     loop: true,
   }}
@@ -52,14 +60,14 @@ export default function Index({ preview, allPosts }) {
               <Image
                 className="App-logo"
                 loader={graphQLImageLoader}
-                src={heroPost.coverImage.url}  // Используйте url изображения
+                src={firstVive.coverImage.url}  // Используйте url изображения
                 width={150}
                 height={150}
                 alt="travel"
               />
             </Animate>
           </div>
-          <Magazine.Footer className="absolute bottom-6 w-100" color="#fff" />
+          <Magazine.Footer className="absolute bottom-6 w-full" color="#fff" />
         </Magazine.Cover>
 
         <Magazine.Content>
@@ -93,7 +101,7 @@ export default function Index({ preview, allPosts }) {
                    
                    
                 </Magazine.Content>
-       
+     
       </Magazine>
     </>
   )
