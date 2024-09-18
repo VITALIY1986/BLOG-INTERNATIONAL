@@ -23,7 +23,7 @@ export default function Index({ preview, allPosts }) {
 
   return (
     <>
-    <Meta image={heroPost } />
+   
       <Magazine>
         <Magazine.Cover image={heroPost }>
           <Heading className="absolute left-4 md:left-8 bottom-40 md:bottom-20">
