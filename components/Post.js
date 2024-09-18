@@ -42,9 +42,12 @@ const Post = (props) => {
         <Avatar name={post.author?.name || 'Anonymous'} picture={post.author?.picture || '/default-avatar.jpg'} />
       )}
                         <h3 className='text-2xl '>
-                          <div className="bg-black text-white"> sdfds {post.tags?.tagname}</div>
+                          <div className=" text-white text-sm"><span className="text-">Teg: </span> {post.tags?.tagname}</div>
                             <Link href={`/posts/${post.slug}`}>
-                                {post.title}
+                            <div className="button_shine text-center mt-3 text-white">
+                            {post.title}
+</div>
+                               
                             </Link>
                         </h3>
                         {post.excerpt && props.max_words > 0 && (
@@ -54,10 +57,7 @@ const Post = (props) => {
                             </p>
                         )}
                     </div>
-                    <a href={post.link}>
-                    <div className="button_shine text-center mt-3 text-white">
-  Переглянути проект
-</div></a>
+       
                 </div>
             </div>
         </article>
