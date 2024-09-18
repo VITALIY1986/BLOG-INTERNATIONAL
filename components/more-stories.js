@@ -10,7 +10,7 @@ export default function MoreStories({ posts }) {
         {posts.map((post) => (
           <PostPreview
             key={post.slug}
-            title={post.title}
+            title={post.title ? post.title  : 'Untitled Post'}
             coverImage={post.coverImage}
             date={post.date}
             author={post.author}

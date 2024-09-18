@@ -24,9 +24,9 @@ console.log(allPosts)
     <>
     <Head>
                 <title>
-                  {heroPost.title} | Next.js Blog Example with
+                {heroPost?.title ? heroPost.title : 'Untitled Post'} | Next.js Blog Example with
                 </title>
-                <meta property="og:image" content={heroPost.title}/>
+                <meta property="og:image" content={heroPost?.title ? heroPost.title : 'Untitled Post'}/>
               </Head>
       <Magazine>
         <Magazine.Cover image={heroPost }>
@@ -63,7 +63,7 @@ console.log(allPosts)
       
         {heroPost && (
           <HeroPost
-            title={heroPost.title}
+            title={heroPost?.title ? heroPost.title : 'Untitled Post'}
             coverImage={heroPost.coverImage}
             date={heroPost.date}
             author={heroPost.author}
