@@ -1,11 +1,10 @@
-import Container from '../components/container'
+
 import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Image from "next/image";
 import { getAllPostsForHome } from '../lib/api'
-import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
+
 import Meta from "../components/meta";
 import Magazine from "../components/Magazine";
 import Heading from "../components/Heading";
@@ -20,7 +19,7 @@ export default function Index({ preview, allPosts }) {
   const graphQLImageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
-
+console.log(heroPost.title)
   return (
     <>
    
@@ -56,18 +55,8 @@ export default function Index({ preview, allPosts }) {
           <Magazine.Footer className="absolute bottom-6 w-100" color="#fff" />
         </Magazine.Cover>
 
-        <Intro />
-        {heroPost && (
-          <HeroPost
-            title={heroPost.title}
-            coverImage={heroPost.coverImage}
-            date={heroPost.date}
-            author={heroPost.author}
-            slug={heroPost.slug}
-            excerpt={heroPost.excerpt}
-          />
-        )}
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      
+       
       </Magazine>
     </>
   )
