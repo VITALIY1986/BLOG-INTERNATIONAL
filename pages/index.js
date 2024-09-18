@@ -6,7 +6,7 @@ import Image from "next/image";
 import { getAllPostsForHome } from '../lib/api'
 import Head from 'next/head'
 import { CMS_NAME } from '../lib/constants'
-import Meta from "../components/Meta";
+import Meta from "../components/meta";
 import Magazine from "../components/Magazine";
 import Heading from "../components/Heading";
 import Animate from "../components/Animate";
@@ -23,7 +23,7 @@ export default function Index({ preview, allPosts }) {
 
   return (
     <>
-      <Meta image={heroPost } />
+    <Meta image={heroPost } />
       <Magazine>
         <Magazine.Cover image={heroPost }>
           <Heading className="absolute left-4 md:left-8 bottom-40 md:bottom-20">
