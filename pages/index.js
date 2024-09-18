@@ -4,7 +4,7 @@ import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Image from "next/image";
 import { getAllPostsForHome } from '../lib/api'
-
+import Head from 'next/head'
 import Meta from "../components/meta";
 import Magazine from "../components/Magazine";
 import Heading from "../components/Heading";
@@ -22,7 +22,12 @@ export default function Index({ preview, allPosts }) {
 console.log(allPosts)
   return (
     <>
-   
+    <Head>
+                <title>
+                  {heroPost.title} | Next.js Blog Example with
+                </title>
+                <meta property="og:image" content={heroPost.title}/>
+              </Head>
       <Magazine>
         <Magazine.Cover image={heroPost }>
           <Heading className="absolute left-4 md:left-8 bottom-40 md:bottom-20">
