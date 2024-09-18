@@ -1,16 +1,13 @@
-import Alert from '../components/alert'
-import Footer from '../components/footer'
-import Meta from '../components/meta'
+import Header from "./Header";
+import styles from "../styles/Layout.module.scss";
 
-export default function Layout({ preview, children }) {
-  return (
-    <>
-      <Meta />
-      <div className="min-h-screen">
-        <Alert preview={preview} />
-        <main>{children}</main>
-      </div>
-      <Footer />
-    </>
-  )
+export default function Contact({ children }) {
+    return (
+        <>
+            <Header />
+            <div className={styles.container}>
+                <main className={styles.main}>{children}</main>
+            </div>
+        </>
+    );
 }
