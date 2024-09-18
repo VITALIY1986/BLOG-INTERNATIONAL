@@ -19,7 +19,7 @@ export default function Index({ preview, allPosts }) {
   const graphQLImageLoader = ({ src, width, quality }) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };
-console.log(heroPost.title)
+console.log(allPosts)
   return (
     <>
    
@@ -56,7 +56,17 @@ console.log(heroPost.title)
         </Magazine.Cover>
 
       
-       
+        {heroPost && (
+          <HeroPost
+            title={heroPost.title}
+            coverImage={heroPost.coverImage}
+            date={heroPost.date}
+            author={heroPost.author}
+            slug={heroPost.slug}
+            excerpt={heroPost.excerpt}
+          />
+        )}
+        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </Magazine>
     </>
   )
