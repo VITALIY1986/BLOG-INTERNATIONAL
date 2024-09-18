@@ -2,7 +2,7 @@ import Image from "next/image";
 import Animate from "../components/Animate";
 import { Block, Row, Col } from "../components/Grid";
 import { Twitter, Dribbble, Instagram, Tumbler } from "../components/Icon";
-
+import CoverImage from './cover-imagehome';
 import styles from "../styles/Magazine.module.scss";
 
 const Magazine = (props) => (
@@ -17,13 +17,15 @@ Magazine.Cover = (props) => {
     };
 
     return (
-        <div className={`${styles.col} ${styles.magazine__cover}  ${props.className}`} style={props.style}>
+        <div className={`${styles.col} ${styles.magazine__cover}  ${props.className}`} >
+         
             <div className={styles.magazine__loading}>
                 <span className="afc-spinner afc-spinner--primary"></span>
             </div>
             <Animate name="fadeIn" delay=".1ms" duration="3s">
-                <div className={styles.cover} style={style}>
-                    {props.children}
+                <div className={styles.cover} >
+                <CoverImage title={props.title} slug={props.slug} url={props.image.coverImage.url || '/default-image.jpg'} />
+                   
                 </div>
             </Animate>
         </div>
