@@ -6,7 +6,7 @@ export default function Contact({ children }) {
         <>
             <Header />
             <div className={styles.container}>
-                <main className={styles.main}>{children}</main>
+                <main className={styles.main}>{children}d</main>
             </div>
         </>
     );
